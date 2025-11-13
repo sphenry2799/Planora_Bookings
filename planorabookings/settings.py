@@ -29,8 +29,7 @@ SECRET_KEY = 'django-insecure-wz6!0+gee%f7tn90hb&p7&yc6hg@4rj4@)m4tcm)mu-p%8pmu(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['planora-reservations-32b582e35d5e.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -42,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reservations',
-    '.herokuapp.com',
-]
+  ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -87,10 +85,8 @@ WSGI_APPLICATION = 'planorabookings.wsgi.application'
 # }
 
 DATABASES = {
-    'default': 
-    dj_database_url.parse(os.environ.get("postgresql://neondb_owner:npg_A4s6WIqfYpob@ep-super-bonus-agl286rn.c-2.eu-central-1.aws.neon.tech/mower_food_outer_536113"))
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
