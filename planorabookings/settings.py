@@ -8,12 +8,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # -------------------
 # SECRET KEY
 # -------------------
-SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-key')  # fallback for local dev
+SECRET_KEY = os.environ.get("SECRET_KEY")  
 
 # -------------------
 # DEBUG
 # -------------------
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = False
 
 # -------------------
 # ALLOWED HOSTS
