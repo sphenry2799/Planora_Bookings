@@ -28,12 +28,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 if DEBUG:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 else:
     ALLOWED_HOSTS = ['planora-reservations-32b582e35d5e.herokuapp.com']
+    
 # Application definition
 
 INSTALLED_APPS = [
