@@ -1,7 +1,8 @@
+from django.contrib import admin
 from django.urls import path
-from . import views
+from reservations import views
 
 urlpatterns = [
-    path('', views.home, name='home'),  # main page
-    path('reservations/', views.reservation_list, name='reservation_list'),
+    path('admin/', admin.site.urls),
+    path('', views.home, name='home'),  # home page → reservation form
 ]
