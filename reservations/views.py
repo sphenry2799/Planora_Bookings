@@ -1,19 +1,13 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Reservation
+from django.shortcuts import render, redirect
 from .forms import ReserveForm
 
-# Home page view
 def home(request):
-    return HttpResponse("Welcome to Planora Reservations!")
-
-# List all reservations
-def reservation_list(request):
-    reservations = Reservation.objects.all()  # fetch all reservations
-    return render(request, 'reservations/list.html', {'reservations': reservations})
-
-def ReserveForm(request):
-
-    context = {}
-
-    return render(request , 'reservations/resevation.html' , context)
+    if request.method == 'POST':
+        form = ReserveForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # or a 'success' page if you prefer
+    else:
+        form = ReserveForm()
+    
+    return render(request, 'reservation_home.html', {'form': form})
