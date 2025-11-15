@@ -4,6 +4,7 @@ import dj_database_url
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # -------------------
 # SECRET KEY
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'planorabookings.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # put templates here
+        'DIRS': 'DIRS': [TEMPLATES_DIR],  # put templates here
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
