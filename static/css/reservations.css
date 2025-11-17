@@ -13,10 +13,10 @@
   --bs-gutter-x: 0;
 }
 
-
 body {
     background: #ffffff;
         }
+
 .reservation-container {
     max-width: 650px;
     margin: 40px auto;
@@ -32,7 +32,7 @@ h2 {
   font-weight: 600;
         }
 
-.btn-primary {
+.btn btn-primary {
   background-color: var(--secondary-color);
   color: var(--light-color)
 }

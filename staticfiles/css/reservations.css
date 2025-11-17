@@ -4,29 +4,35 @@
 :root {
   --primary-font: "Inter", sans-serif;
   --secondary-font: "Macondo", serif;
-  --primary-color: #9a031a;
-  --secondary-color: #0f4c5c;
-  --third-color: #cca43b;
+  --primary-color: #fca311;
+  --secondary-color: #14213d;
+  --third-color: #e5e5e5;
   --light-color: #ffffff;
   --dark-color: #000000;
   --background-color: rgba(8, 8, 8, 0.5);
   --bs-gutter-x: 0;
 }
 
-
 body {
-    background: #a53434;
+    background: #ffffff;
         }
+
 .reservation-container {
-    max-width: 550px;
+    max-width: 650px;
     margin: 40px auto;
-    background: #fff;
+    background: var(--primary-color);
+    font-family: var(--primary-font);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
         }
 
 h2 {
-   font-weight: 600;
+  font-family: var(--secondary-font);
+  font-weight: 600;
         }
 
+.btn btn-primary {
+  background-color: var(--secondary-color);
+  color: var(--light-color)
+}
