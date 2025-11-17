@@ -33,7 +33,7 @@ h2 {
   font-weight: 700;
         }
 
-.btn-primary {
+.button.btn.btn-primary {
   background-color: var(--secondary-color);
   color: var(--light-color);
 }
