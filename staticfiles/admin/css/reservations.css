@@ -11,3 +11,22 @@
   --dark-color: #000000;
   --background-color: rgba(8, 8, 8, 0.5);
   --bs-gutter-x: 0;
+}
+
+
+body {
+    background: #a53434;
+        }
+.reservation-container {
+    max-width: 550px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+h2 {
+   font-weight: 600;
+        }
+
