@@ -14,14 +14,15 @@
 }
 
 body {
-    background: #ffffff;
+    background-image: url(../images/reservation-illustration.jpg) no-repeat center cover;
         }
 
 .reservation-container {
-    max-width: 650px;
+    max-width: 550px;
     margin: 40px auto;
     background: var(--primary-color);
     font-family: var(--primary-font);
+    font-size: 2rem;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
@@ -29,10 +30,10 @@ body {
 
 h2 {
   font-family: var(--secondary-font);
-  font-weight: 600;
+  font-weight: 700;
         }
 
-.btn btn-primary {
+.button.btn.btn-primary {
   background-color: var(--secondary-color);
-  color: var(--light-color)
+  color: var(--light-color);
 }
