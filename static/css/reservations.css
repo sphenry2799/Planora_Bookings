@@ -14,11 +14,11 @@
 }
 
 body {
-    background-image: url(../images/reservation-illustration.jpg) no-repeat center center/cover;
+    background-image: url(../images/reservation-illustration.jpg) no-repeat center cover;
         }
 
 .reservation-container {
-    max-width: 650px;
+    max-width: 550px;
     margin: 40px auto;
     background: var(--primary-color);
     font-family: var(--primary-font);
