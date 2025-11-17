@@ -14,7 +14,7 @@
 }
 
 body {
-    background: #ffffff;
+    background-image: url(../docs/reservation-illustration.jpg) no-repeat center center/cover;
         }
 
 .reservation-container {
@@ -22,6 +22,7 @@ body {
     margin: 40px auto;
     background: var(--primary-color);
     font-family: var(--primary-font);
+    font-size: 2rem;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
