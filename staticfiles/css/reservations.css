@@ -24,11 +24,12 @@ body {
     max-width: 600px;
     margin: 40px auto;
     background: var(--secondary-color);
+    color: var(--third-color);
     font-family: var(--primary-font);
     font-weight: 300;
     font-size: 1rem;
     padding: 30px;
-    border-radius: 0px;
+    border: none;
          }
 
 h2 {
@@ -38,6 +39,6 @@ h2 {
         }
 
 .btn-primary {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--light-color);
 }
