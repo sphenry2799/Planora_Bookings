@@ -1,19 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&display=swap');
 
-
-body {
-    background: #a53434;
-        }
-.reservation-container {
-    max-width: 550px;
-    margin: 40px auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-        }
-
-h2 {
-   font-weight: 600;
-        }
-
+/* CSS Variables */
+:root {
+  --primary-font: "Inter", sans-serif;
+  --secondary-font: "Macondo", serif;
+  --primary-color: #9a031a;
+  --secondary-color: #0f4c5c;
+  --third-color: #cca43b;
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --background-color: rgba(8, 8, 8, 0.5);
+  --bs-gutter-x: 0;
