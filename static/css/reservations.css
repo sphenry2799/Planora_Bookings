@@ -14,7 +14,7 @@
 }
 
 body {
-    background-image: url(../docs/reservation-illustration.jpg) no-repeat center center/cover;
+    background-image: url(../images/reservation-illustration.jpg);
         }
 
 .reservation-container {
