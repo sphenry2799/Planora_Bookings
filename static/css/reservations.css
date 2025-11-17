@@ -26,11 +26,10 @@ body {
     background: var(--secondary-color);
     color: var(--third-color);
     font-family: var(--primary-font);
-    font-weight: 300;
-    font-size: 1rem;
+    font-weight: 500;
+    font-size: 1.2rem;
     padding: 30px;
-    border: none;
-         }
+             }
 
 h2 {
   font-family: var(--secondary-font);
@@ -41,4 +40,5 @@ h2 {
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--light-color);
+  border: none;
 }
