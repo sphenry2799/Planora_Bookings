@@ -73,7 +73,7 @@ ROOT_URLCONF = 'planorabookings.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],   # <-- this is correct
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,6 +85,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 # -------------------
 # WSGI
