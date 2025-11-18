@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include  # include allows app urls
 
 urlpatterns = [
+    path("about/", include("about.urls"), name="about-urls"),
     path('admin/', admin.site.urls),
-    path('', include('reservations.urls')),  # delegate all other routes to reservations app
+    path('', include('reservations.urls')),  
+    path("accounts/", include("allauth.urls")),
 ]
