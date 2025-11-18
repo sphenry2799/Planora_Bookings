@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # -------------------
 # SECRET KEY
 # -------------------
-# Use environment variable in production (Heroku), fallback for local dev
+# Use environment variable in production, fallback for local development
 SECRET_KEY = os.environ.get("SECRET_KEY", "local-secret-key-for-dev-only")
 
 # -------------------
@@ -48,6 +48,11 @@ INSTALLED_APPS = [
     'django_summernote',
     'about',
 ]
+
+# -------------------
+# DEFAULT AUTO FIELD (fixes Summernote warning)
+# -------------------
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # -------------------
 # Sites framework
@@ -99,15 +104,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'planorabookings.wsgi.application'
 
 # -------------------
-# DATABASES
+# DATABASES (Heroku / Local fallback)
 # -------------------
 if os.environ.get("DATABASE_URL"):
-    # Production / Heroku
+    # Heroku PostgreSQL
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
     }
 else:
-    # Local development
+    # Local SQLite
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -150,7 +155,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static']  # optional project-level static folder
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # -------------------
-# EMAIL BACKEND (for testing)
+# EMAIL BACKEND (for development)
 # -------------------
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
