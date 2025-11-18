@@ -10,13 +10,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # -------------------
 # SECRET KEY
 # -------------------
-# Use environment variable in production, fallback for local development
 SECRET_KEY = os.environ.get("SECRET_KEY", "local-secret-key-for-dev-only")
 
 # -------------------
 # DEBUG
 # -------------------
-DEBUG = os.environ.get("DEBUG", "False") == "True"
+# Automatically True locally, False on Heroku unless overridden
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 # -------------------
 # ALLOWED HOSTS
@@ -50,7 +50,7 @@ INSTALLED_APPS = [
 ]
 
 # -------------------
-# DEFAULT AUTO FIELD (fixes Summernote warning)
+# DEFAULT AUTO FIELD (fix Summernote warning)
 # -------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -64,7 +64,7 @@ SITE_ID = 1
 # -------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # for Heroku static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Heroku static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'allauth.account.middleware.AccountMiddleware',  # required by allauth
     'django.middleware.common.CommonMiddleware',
@@ -104,7 +104,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'planorabookings.wsgi.application'
 
 # -------------------
-# DATABASES (Heroku / Local fallback)
+# DATABASES
 # -------------------
 if os.environ.get("DATABASE_URL"):
     # Heroku PostgreSQL
@@ -124,7 +124,7 @@ else:
 # AUTHENTICATION
 # -------------------
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',  # default
+    'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
@@ -155,15 +155,15 @@ STATICFILES_DIRS = [BASE_DIR / 'static']  # optional project-level static folder
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # -------------------
-# EMAIL BACKEND (for development)
+# EMAIL BACKEND (development)
 # -------------------
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # -------------------
 # django-allauth settings
 # -------------------
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # disable email verification
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = False
-LOGIN_REDIRECT_URL = '/'   # redirect after login
-LOGOUT_REDIRECT_URL = '/'  # redirect after logout
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
