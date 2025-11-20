@@ -13,8 +13,27 @@
   --bs-gutter-x: 0;
 }
 
-.navbar-custom {
-    background-color: var(--primary-color);
-    color: var(--dark-color);
+.navbar-brand {
+  background-color: none;
+  filter: transparent;
 }
 
+.navbar-custom {
+  background-color: var(--primary-color);
+}
+
+.nav-link {
+  color: var(--dark-color);
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.logo {
+  filter: transparent;
+  display: block;
+  max-height: 4rem; /* optional to size your logo */
+}
+
+#footer {
+  background-color: var(--primary-color);
+}

@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
         <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favico/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favico/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favico/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favico/site.webmanifest' %}">
 
 
     {% block extra_css %}{% endblock %}
@@ -30,10 +30,11 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
   <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img class="logo" src="{% static 'images/logo-planora-black.png' %}" alt="Planora logo" />
+    </a>
 
-    <a class="navbar-brand" href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo-planora-black.png' %}" alt="Planora logo" /></a>
-    
-    <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse">
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
@@ -68,8 +69,82 @@
 
   </div>
 </nav>
-
+<div></div>
 {% block content %}{% endblock %}
 
 </body>
+ <footer id="footer" class="py-4 mt-auto">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <h3>@Luxe-Atlas</h3>
+            <ul id="social" class="list-unstyled social-icons mb-3">
+              <li>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  aria-label="Find us on Facebook"
+                >
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  aria-label="Follow us on X"
+                >
+                  <i class="fa-brands fa-x-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  aria-label="Follow us on Instagram"
+                >
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com"
+                  target="_blank"
+                  aria-label="Subscribe to us on YouTube"
+                >
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h3>Directory</h3>
+            <ul class="list-unstyled">
+              <li><a href="locations.html">Locations</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h3>Luxe Atlas Travel</h3>
+            <address>
+              <i class="fa-solid fa-location-dot"></i> 123 Canary Wharf<br />
+              Docklands<br />
+              London<br />
+              E14 1AB
+            </address>
+            <p><i class="fa-solid fa-phone"></i> 0123 456 7890</p>
+            <p><i class="fa-solid fa-envelope"></i> info@luxeatlas.me</p>
+          </div>
+          <div class="col-12 col-md-3">
+            <h3>Made by Sharon Henry</h3>
+            <p>
+              2025 Luxe Atlas. <br />Made with
+              <i class="fa-solid fa-heart"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 </html>
