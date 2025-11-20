@@ -16,8 +16,9 @@
 body {
     background-image: url('../images/reservation-illustration.jpg'); /* only the URL here */
     background-repeat: no-repeat;      /* prevent tiling */
-    background-position: center;       /* center the image */
-    background-size: cover;            /* make it fill the screen */
+    background-position: center;      
+    background-size: cover;      
+    /* filter: grayscale(50%); */
         }
 
 .reservation-container {
