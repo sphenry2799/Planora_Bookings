@@ -3,10 +3,10 @@
 {% load static %}
 <div class="container mt-5">
   <div class="row">
-    <div class="col-4 text-center">
-      <img src="{% static 'images/flat-lay-wall-clock-still-life.jpg' %}" width="75%" />
+    <div class="col-6 text-center">
+      <img src="{% static 'images/flat-lay-wall-clock-still-life.webp' %}" width="75%" />
     </div>
-    <div class="col-8">
+    <div class="col-6">
       <!-- Title goes between these h2 tags -->
       <h2>{{ about.title }}About Planora</h2>
       <!-- Content goes directly underneath this -->
@@ -15,16 +15,13 @@
 <br>
 At its core, Planora is built around clarity. We believe that effective planning shouldn’t feel overwhelming or rigid. That’s why we’ve crafted a platform that adapts to the way people actually work—flexible enough for creative thinking, structured enough for precise execution, and powerful enough to support projects of any scale.<br>
 <br>
-With Planora, teams can visualize their goals, track progress, and collaborate seamlessly from start to finish. Whether you’re coordinating a project, mapping out strategy, or refining long-term plans, Planora provides the tools, structure, and transparency needed to keep everyone moving in the same direction.<br>
-<br>
-We’re committed to creating a planning experience that is not only efficient, but enjoyable. By focusing on thoughtful design, smart features, and a user-first approach, Planora enables teams to spend less time managing logistics and more time building what truly matters.</p>
     </div>
   </div>
   <div class="row">
     <div class="col text-right">
       <!-- Updated on field goes in here -->
 
-      <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
+      <!-- <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p> -->
     </div>
   </div>
 </div>
