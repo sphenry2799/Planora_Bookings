@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-font: "Inter", sans-serif;
+  --secondary-font: "Macondo", serif;
+  --primary-color: #fca311;
+  --secondary-color: #14213d;
+  --third-color: #e5e5e5;
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --background-color: rgba(8, 8, 8, 0.5);
+  --bs-gutter-x: 0;
+}
+
+h3 {
+    font-family: var(--secondary-font);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.7rem;
+    font-family: var(--primary-font);
+}
+
+.btn-signup {
+    font-size: 1.7rem;
+    background-color: var(--secondary-color);
+    color: var(--third-color);
+}
+
+.btn-signup:hover {
+    background-color: var(--primary-color);
+}
+
+.login {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+#id_remember{
+    font-weight: 500;
+    scale: 1.7;
+}
