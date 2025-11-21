@@ -12,16 +12,3 @@
   --background-color: rgba(8, 8, 8, 0.5);
   --bs-gutter-x: 0;
 }
-
-
-h2 {
-    font-family: var(--secondary-font);
-    font-size: 3rem;
-    font-weight: 700;
-}
-
-
-p {
-    font-size: 1.2rem;
-    font-family: var(--primary-font);
-}
