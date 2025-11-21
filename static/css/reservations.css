@@ -18,11 +18,10 @@ body {
     background-repeat: no-repeat;      /* prevent tiling */
     background-position: center;      
     background-size: cover;      
-    /* filter: grayscale(50%); */
         }
 
 .reservation-container {
-    max-width: 600px;
+    max-width: 550px;
     margin: 40px auto;
     background: var(--secondary-color);
     color: var(--third-color);

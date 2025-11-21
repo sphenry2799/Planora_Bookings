@@ -34,6 +34,14 @@
   max-height: 4rem; /* optional to size your logo */
 }
 
+.social-icons {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0;
+  margin: 0;
+}
+
 #footer {
   background-color: var(--primary-color);
 }
+
