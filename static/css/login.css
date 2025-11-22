@@ -20,6 +20,11 @@ body {
     background-size: cover;      
         }
 
+
+p {
+    font-size: 1.5rem;
+}
+
 h3 {
     font-family: var(--secondary-font);
     font-size: 3rem;
@@ -30,8 +35,12 @@ h4 {
     font-size: 2.5rem;
 }
 
-.btn-signup {
+.main-text {
     font-size: 1.7rem;
+}
+
+.btn-signup {
+    font-size: 1.5rem;
     background-color: var(--secondary-color);
     color: var(--light-color);
 }
@@ -42,10 +51,10 @@ h4 {
 
 .login {
     color: var(--secondary-color);
+    font-size: 2rem;
     font-weight: 600;
 }
 
-#id_remember{
-    font-weight: 500;
-    scale: 1.7;
+#id_remember {
+    scale: 1.4;
 }
