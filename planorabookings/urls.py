@@ -15,12 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include  # include allows app urls
+from django.urls import path, include
+from .views import home_redirect   # ← import the redirect
 
 urlpatterns = [
     path("about/", include("about.urls"), name="about-urls"),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('', include('reservations.urls')),  
+    path('', home_redirect, name="home"),     # ← NEW HOME PAGE
     path("accounts/", include("allauth.urls")),
+    path('reservations/', include('reservations.urls')),  # ← move reservations here
 ]

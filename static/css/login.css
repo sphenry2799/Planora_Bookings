@@ -13,6 +13,13 @@
   --bs-gutter-x: 0;
 }
 
+body {
+    background-image: url('../images/booking.jpg'); /* only the URL here */
+    background-repeat: no-repeat;      /* prevent tiling */
+    background-position: center;      
+    background-size: cover;      
+        }
+
 h3 {
     font-family: var(--secondary-font);
     font-size: 3rem;
@@ -23,15 +30,10 @@ h4 {
     font-size: 2.5rem;
 }
 
-p {
-    font-size: 1.7rem;
-    font-family: var(--primary-font);
-}
-
 .btn-signup {
     font-size: 1.7rem;
     background-color: var(--secondary-color);
-    color: var(--third-color);
+    color: var(--light-color);
 }
 
 .btn-signup:hover {

@@ -28,4 +28,24 @@ At its core, Planora is built around clarity. We believe that effective planning
     </div>
   </div>
 </div>
+
+{% if success %}
+    <div class="alert alert-success">Thank you! Your message was sent.</div>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="mb-3">
+            <label>{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <div class="text-danger">{{ field.errors }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+
 {% endblock content %}

@@ -12,3 +12,51 @@
   --background-color: rgba(8, 8, 8, 0.5);
   --bs-gutter-x: 0;
 }
+
+body {
+    background-image: url('../images/booking.jpg'); /* only the URL here */
+    background-repeat: no-repeat;      /* prevent tiling */
+    background-position: center;      
+    background-size: cover;      
+        }
+
+h1 {
+    font-family: var(--secondary-font);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 2.5rem;
+}
+
+.main-text {
+    font-size: 1.7rem;
+    font-family: var(--primary-font);
+}
+
+.signup {
+  font-size: 1.3rem;
+}
+
+.btn-signup {
+    font-size: 1.7rem;
+    background-color: var(--secondary-color);
+    color: var(--third-color);
+}
+
+.btn-signup:hover {
+    background-color: var(--primary-color);
+}
+
+.login {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--dark-color);
+  border: none;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
