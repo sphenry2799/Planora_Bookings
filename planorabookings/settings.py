@@ -1,17 +1,17 @@
 import os
 from pathlib import Path
-import dj_database_url
 
 # -------------------
-# BASE DIRECTORY
+# BASE DIR
 # -------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # -------------------
 # SECRET KEY
 # -------------------
-print("SECRET_KEY:", os.environ.get("SECRET_KEY"))
-
+SECRET_KEY = os.environ.get("SECRET_KEY")
+if not SECRET_KEY:
+    raise Exception("SECRET_KEY not set in environment variables!")
 
 # -------------------
 # DEBUG
@@ -25,12 +25,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.herokuapp.com',
+    '.herokuappusercontent.com',
 ]
-
-# -------------------
-# ROOT URLCONF
-# -------------------
-ROOT_URLCONF = 'planorabookings.urls'  # Adjust to your project folder
 
 # -------------------
 # INSTALLED APPS
@@ -42,31 +38,36 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',           # Required for django-allauth
+
+    # Third-party apps
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_summernote',              # If you use Summernote
-    # Your apps go here, e.g.
+    'django_summernote',
+
+    # Your apps
     'reservations',
 ]
-
-SITE_ID = 1  # Required for django-allauth
 
 # -------------------
 # MIDDLEWARE
 # -------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files on Heroku
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # for Heroku static files
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'allauth.account.middleware.AccountMiddleware', # Required by allauth
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',  # required by django-allauth
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# -------------------
+# URL CONFIGURATION
+# -------------------
+ROOT_URLCONF = 'planorabookings.urls'
 
 # -------------------
 # TEMPLATES
@@ -79,7 +80,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # Required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -88,33 +89,19 @@ TEMPLATES = [
 ]
 
 # -------------------
-# WSGI APPLICATION
+# DATABASE
 # -------------------
-WSGI_APPLICATION = 'planorabookings.wsgi.application'  # Adjust to your project folder
-
-# -------------------
-# DATABASE (Heroku Postgres)
-# -------------------
+# Example: Using dj-database-url for Heroku PostgreSQL
+import dj_database_url
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
+    'default': dj_database_url.config(default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}")
 }
-
-# -------------------
-# AUTHENTICATION (django-allauth)
-# -------------------
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',  # default
-    'allauth.account.auth_backends.AuthenticationBackend',  # allauth
-)
 
 # -------------------
 # STATIC FILES
 # -------------------
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # For collectstatic on Heroku
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # -------------------
 # MEDIA FILES
@@ -123,19 +110,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # -------------------
-# EMAIL SETTINGS (example using Gmail)
+# AUTHENTICATION
 # -------------------
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 # -------------------
-# INTERNATIONALIZATION
+# OTHER SETTINGS
 # -------------------
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_TZ = True
+# Add anything else your project uses here
