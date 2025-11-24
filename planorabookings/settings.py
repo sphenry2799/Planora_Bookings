@@ -53,8 +53,8 @@ INSTALLED_APPS = [
 # MIDDLEWARE
 # -------------------
 MIDDLEWARE = [
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # for Heroku static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -100,8 +100,15 @@ DATABASES = {
 # -------------------
 # STATIC FILES
 # -------------------
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Heroku collects here
+
+# Extra locations for static files (optional, if you have a 'static' folder in apps)
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Whitenoise settings
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # -------------------
 # MEDIA FILES
