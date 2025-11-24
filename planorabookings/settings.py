@@ -1,39 +1,36 @@
 import os
 from pathlib import Path
-import dj_database_url
 
-# -------------------
-# BASE DIR
-# -------------------
+# -----------------------------
+# Base directory
+# -----------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# -------------------
-# SECRET KEY
-# -------------------
+# -----------------------------
+# SECRET_KEY
+# -----------------------------
 SECRET_KEY = os.environ.get("SECRET_KEY")
 if not SECRET_KEY:
     raise Exception("SECRET_KEY not set")
 
+# -----------------------------
+# Debug mode
+# -----------------------------
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-# -------------------
-# DEBUG
-# -------------------
-# Automatically True locally, False on Heroku unless overridden
-DEBUG = os.environ.get("DEBUG", "True") == "True"
-
-# -------------------
-# ALLOWED HOSTS
-# -------------------
+# -----------------------------
+# Allowed hosts
+# -----------------------------
 ALLOWED_HOSTS = [
+    'planora-reservations-32b582e35d5e.herokuapp.com',
     'localhost',
     '127.0.0.1',
-    '.herokuapp.com',      # <--- Allow all Heroku dyno hostnames
-    '.herokuappusercontent.com',  # sometimes used for assets
+    '.herokuapp.com',  # allow all dyno hostnames
 ]
 
-# -------------------
-# INSTALLED APPS
-# -------------------
+# -----------------------------
+# Installed apps (add allauth and sites)
+# -----------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,37 +38,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-
-    # django-allauth
+    'django.contrib.sites',           # required for allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
-    # your apps
-    'reservations',
-    'django_summernote',
-    'about',
+    'django_summernote',              # if using Summernote
+    # ... your apps
 ]
 
-# -------------------
-# DEFAULT AUTO FIELD (fix Summernote warning)
-# -------------------
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# -------------------
-# Sites framework
-# -------------------
+# -----------------------------
+# Site ID for allauth
+# -----------------------------
 SITE_ID = 1
 
-# -------------------
-# MIDDLEWARE
-# -------------------
+# -----------------------------
+# Middleware
+# -----------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Heroku static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # serve static files
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'allauth.account.middleware.AccountMiddleware',  # required by allauth
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -79,14 +65,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# -------------------
-# ROOT URL
-# -------------------
-ROOT_URLCONF = 'planorabookings.urls'
-
-# -------------------
-# TEMPLATES
-# -------------------
+# -----------------------------
+# Templates
+# -----------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -95,7 +76,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # required by allauth
+                'django.template.context_processors.request',  # required for allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -103,72 +84,43 @@ TEMPLATES = [
     },
 ]
 
-# -------------------
-# WSGI
-# -------------------
-WSGI_APPLICATION = 'planorabookings.wsgi.application'
+# -----------------------------
+# Database
+# -----------------------------
+import dj_database_url
 
-# -------------------
-# DATABASES
-# -------------------
-if os.environ.get("DATABASE_URL"):
-    # Heroku PostgreSQL
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-    }
-else:
-    # Local SQLite
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+}
 
-# -------------------
-# AUTHENTICATION
-# -------------------
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
+# -----------------------------
+# Static files (WhiteNoise)
+# -----------------------------
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# -------------------
-# PASSWORD VALIDATION
-# -------------------
-AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
-]
+# -----------------------------
+# Media files
+# -----------------------------
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
 
-# -------------------
-# LANGUAGE / TIMEZONE
-# -------------------
+# -----------------------------
+# Authentication redirects
+# -----------------------------
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# -----------------------------
+# Email (required for allauth)
+# -----------------------------
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # or configure SMTP
+
+# -----------------------------
+# Internationalization
+# -----------------------------
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-
-# -------------------
-# STATIC FILES
-# -------------------
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # optional project-level static folder
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# -------------------
-# EMAIL BACKEND (development)
-# -------------------
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
-# -------------------
-# django-allauth settings
-# -------------------
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = False
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
