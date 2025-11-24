@@ -1,6 +1,10 @@
 import os
 from pathlib import Path
-import env
+try:
+    import env  # noqa: F401
+except ModuleNotFoundError:
+    # Error handling
+    pass
 
 # -------------------
 # BASE DIR
