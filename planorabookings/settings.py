@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',              # If you use Summernote
     # Your apps go here, e.g.
-    # 'reservations',
+    'reservations',
 ]
 
 SITE_ID = 1  # Required for django-allauth
