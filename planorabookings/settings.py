@@ -1,36 +1,41 @@
 import os
 from pathlib import Path
+import dj_database_url
 
-# -----------------------------
-# Base directory
-# -----------------------------
+# -------------------
+# BASE DIRECTORY
+# -------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# -----------------------------
-# SECRET_KEY
-# -----------------------------
+# -------------------
+# SECRET KEY
+# -------------------
 SECRET_KEY = os.environ.get("SECRET_KEY")
 if not SECRET_KEY:
-    raise Exception("SECRET_KEY not set")
+    raise Exception("SECRET_KEY not set in environment variables!")
 
-# -----------------------------
-# Debug mode
-# -----------------------------
+# -------------------
+# DEBUG
+# -------------------
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-# -----------------------------
-# Allowed hosts
-# -----------------------------
+# -------------------
+# ALLOWED HOSTS
+# -------------------
 ALLOWED_HOSTS = [
-    'planora-reservations-32b582e35d5e.herokuapp.com',
     'localhost',
     '127.0.0.1',
-    '.herokuapp.com',  # allow all dyno hostnames
+    '.herokuapp.com',
 ]
 
-# -----------------------------
-# Installed apps (add allauth and sites)
-# -----------------------------
+# -------------------
+# ROOT URLCONF
+# -------------------
+ROOT_URLCONF = 'planorabookings.urls'  # Adjust to your project folder
+
+# -------------------
+# INSTALLED APPS
+# -------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,27 +43,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',           # required for allauth
+    'django.contrib.sites',           # Required for django-allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_summernote',              # if using Summernote
-    # ... your apps
+    'django_summernote',              # If you use Summernote
+    # Your apps go here, e.g.
+    # 'reservations',
 ]
 
-# -----------------------------
-# Site ID for allauth
-# -----------------------------
-SITE_ID = 1
+SITE_ID = 1  # Required for django-allauth
 
-# -----------------------------
-# Middleware
-# -----------------------------
+# -------------------
+# MIDDLEWARE
+# -------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files on Heroku
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'allauth.account.middleware.AccountMiddleware',  # <-- Add this
+    'allauth.account.middleware.AccountMiddleware', # Required by allauth
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -66,18 +69,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# -----------------------------
-# Templates
-# -----------------------------
+# -------------------
+# TEMPLATES
+# -------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # required for allauth
+                'django.template.context_processors.request',  # Required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -85,42 +88,54 @@ TEMPLATES = [
     },
 ]
 
-# -----------------------------
-# Database
-# -----------------------------
-import dj_database_url
+# -------------------
+# WSGI APPLICATION
+# -------------------
+WSGI_APPLICATION = 'planorabookings.wsgi.application'  # Adjust to your project folder
 
+# -------------------
+# DATABASE (Heroku Postgres)
+# -------------------
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
 }
 
-# -----------------------------
-# Static files (WhiteNoise)
-# -----------------------------
+# -------------------
+# AUTHENTICATION (django-allauth)
+# -------------------
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # default
+    'allauth.account.auth_backends.AuthenticationBackend',  # allauth
+)
+
+# -------------------
+# STATIC FILES
+# -------------------
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # For collectstatic on Heroku
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# -----------------------------
-# Media files
-# -----------------------------
+# -------------------
+# MEDIA FILES
+# -------------------
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / 'media'
 
-# -----------------------------
-# Authentication redirects
-# -----------------------------
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+# -------------------
+# EMAIL SETTINGS (example using Gmail)
+# -------------------
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-# -----------------------------
-# Email (required for allauth)
-# -----------------------------
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # or configure SMTP
-
-# -----------------------------
-# Internationalization
-# -----------------------------
+# -------------------
+# INTERNATIONALIZATION
+# -------------------
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
