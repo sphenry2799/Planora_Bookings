@@ -21,10 +21,12 @@ DEBUG = os.environ.get("DEBUG", "True") == "True"
 # -------------------
 # ALLOWED HOSTS
 # -------------------
-if DEBUG:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-else:
-    ALLOWED_HOSTS = ['.herokuapp.com', '.herokuappusercontent.com']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.herokuapp.com',      # <--- Allow all Heroku dyno hostnames
+    '.herokuappusercontent.com',  # sometimes used for assets
+]
 
 # -------------------
 # INSTALLED APPS
