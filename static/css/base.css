@@ -53,6 +53,10 @@ p {
   font-size: 1rem;
 }
 
+.button {
+  color: var(--dark-color);
+}
+
 #footer {
   background-color: var(--primary-color);
 }
