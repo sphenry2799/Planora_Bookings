@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-font: "Inter", sans-serif;
+  --secondary-font: "Macondo", serif;
+  --primary-color: #fca311;
+  --secondary-color: #14213d;
+  --third-color: #e5e5e5;
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --background-color: rgba(8, 8, 8, 0.5);
+  --bs-gutter-x: 0;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.navbar-brand {
+  background-color: none;
+  filter: transparent;
+}
+
+.navbar-custom {
+  background-color: var(--primary-color);
+}
+
+.nav-link {
+  color: var(--dark-color);
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.logo {
+  filter: transparent;
+  display: block;
+  max-height: 4rem; /* optional to size your logo */
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons, .list-unstyled a {
+    color: var(--secondary-color);
+}
+
+.footer-text {
+  font-size: 1rem;
+}
+
+#footer {
+  background-color: var(--primary-color);
+}
+
