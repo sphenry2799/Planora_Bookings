@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-font: "Inter", sans-serif;
+  --secondary-font: "Macondo", serif;
+  --primary-color: #fca311;
+  --secondary-color: #14213d;
+  --third-color: #e5e5e5;
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --background-color: rgba(8, 8, 8, 0.5);
+  --bs-gutter-x: 0;
+}
+
+body {
+    background-image: url('../images/reservation-illustration.jpg'); /* only the URL here */
+    background-repeat: no-repeat;      /* prevent tiling */
+    background-position: center;      
+    background-size: cover;      
+        }
+
+
+p {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+
+h3 {
+    font-family: var(--secondary-font);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 2.5rem;
+}
+
+.main-text {
+    font-size: 1.7rem;
+}
+
+
+.btn-signup {
+    font-size: 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+}
+
+.btn-signup:hover {
+    background-color: var(--primary-color);
+}

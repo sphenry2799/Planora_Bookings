@@ -1,3 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/reservations.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="reservation-container pt-5 mt-5">
+    <div class="row">
+        <div class="col-12 mb-3">
+
 <h2>Your Reservations</h2>
 
 <ul class="list-group">
@@ -17,3 +29,7 @@
         <li class="list-group-item">No reservations yet.</li>
     {% endfor %}
 </ul>
+     </div>
+    </div>
+</div>
+{% endblock %}
