@@ -133,7 +133,7 @@ AUTHENTICATION_BACKENDS = (
 # -------------------
 # OTHER SETTINGS
 # -------------------
-LOGIN_REDIRECT_URL = '/'  # home page
+LOGIN_REDIRECT_URL = '/reservations/'  # home page
 
 # URL to show login page when login is required
 LOGIN_URL = '/'  
