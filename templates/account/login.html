@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load account socialaccount %}
+
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block extra_head %}
@@ -11,7 +12,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+        <div class="col-md-8 mt-3 offset-md-2 text-center">
             <h3 class="mb-4 mt-4"><i class="fa-solid fa-arrow-right-to-bracket"></i> {% trans "Log In to Planora" %}</h3>
 
             {% blocktrans %} <h4>Welcome back.</h4><br>

@@ -133,5 +133,7 @@ AUTHENTICATION_BACKENDS = (
 # -------------------
 # OTHER SETTINGS
 # -------------------
-# Add anything else your project uses here
-LOGIN_REDIRECT_URL = '/reservations/'
+LOGIN_REDIRECT_URL = '/'  # home page
+
+# URL to show login page when login is required
+LOGIN_URL = '/'  

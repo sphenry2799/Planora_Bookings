@@ -39,3 +39,6 @@ def reservation_list(request):
     reservations = Reservation.objects.all().order_by('-date', '-time')
     return render(request, 'reservation_list.html', {'reservations': reservations})
 
+def profile_view(request):
+    return render(request, "profile.html")
+
