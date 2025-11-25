@@ -134,3 +134,4 @@ AUTHENTICATION_BACKENDS = (
 # OTHER SETTINGS
 # -------------------
 # Add anything else your project uses here
+LOGIN_REDIRECT_URL = '/reservations/'
