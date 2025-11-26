@@ -1,3 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/delete.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="reservation-container pt-5 mt-5">
+    <div class="row">
+        <div class="col-12 mb-3">
+
 <h2>Cancel Reservation</h2>
 
 <p>Are you sure you want to cancel the reservation for <strong>{{ reservation.name }}</strong>?</p>
@@ -8,3 +20,8 @@
 </form>
 
 <a href="{% url 'reservation_list' %}">Back</a>
+
+     </div>
+    </div>
+</div>
+{% endblock %}
