@@ -7,8 +7,15 @@
 
 
 {% block content %}
+<div class="reservation-container pt-5 mt-5">
+    <div class="row">
+        <div class="col-12 mb-3">
 <h2>Success. Your reservation has been made.</h2>
 <p>Details have been saved.</p>
 
 <a href="{% url 'reservation_list' %}" class="btn btn-primary">Back to reservations</a>
+
+     </div>
+    </div>
+</div>
 {% endblock %}

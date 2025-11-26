@@ -22,12 +22,12 @@ body {
 
 h2 {
   font-family: var(--secondary-font);
-  color: var(--light-color);
+  color: var(--secondary-color);
   font-weight: 700;
         }
 
 .btn-primary {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: var(--light-color);
   border: none;
 }
