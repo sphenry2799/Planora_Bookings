@@ -32,3 +32,4 @@ class Reservation(models.Model):
             f"guest(s) on {self.date} at {self.time} is confirmed."
         )
 
+
