@@ -43,7 +43,7 @@ h2 {
 
 .btn-primary {
   background-color: var(--primary-color);
-  color: var(--light-color);
+  color: var(--dark-color);
   border: none;
 }
 

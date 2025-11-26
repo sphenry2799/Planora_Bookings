@@ -20,14 +20,30 @@ body {
     background-size: cover;      
         }
 
+p {
+    font-size: 1.5rem;
+    margin: 2rem auto;
+}
+
 h2 {
   font-family: var(--secondary-font);
   color: var(--secondary-color);
   font-weight: 700;
         }
 
+.reservation-container {
+    max-width: 35rem;
+    margin: 6rem auto;
+    background: var(--secondary-color);
+    color: var(--third-color);
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 2rem;
+             }
+
 .btn-primary {
-  background-color: var(--secondary-color);
-  color: var(--light-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   border: none;
 }

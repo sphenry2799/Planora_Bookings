@@ -16,7 +16,7 @@
 
 <form method="POST">
     {% csrf_token %}
-    <button type="submit">Confirm Cancel</button>
+    <button type="submit" class="btn btn-primary mb-3">Confirm Cancel</button>
 </form>
 
 <a href="{% url 'reservation_list' %}">Back</a>
