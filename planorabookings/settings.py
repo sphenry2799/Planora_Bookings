@@ -52,8 +52,7 @@ INSTALLED_APPS = [
 
     # Your apps
     'reservations',
-    'about',
-]
+  ]
 
 # -------------------
 # MIDDLEWARE
