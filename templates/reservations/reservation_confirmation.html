@@ -8,14 +8,17 @@
 
 {% block content %}
 <div class="reservation-container pt-5 mt-5">
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-12 mb-3">
-<h2>Success. Your reservation has been made.</h2>
-<p>Details have been saved.</p>
+<h1 class="text-center">Success!.<br></h1>
+    <br>
+<h2>Your reservation has been made.</h2>
+<p>Your reservation can be changed or cancelled at any time.</p>
 
-<a href="{% url 'reservation_list' %}" class="btn btn-primary">Back to reservations</a>
+<a href="{% url 'reservation_list' %}" class="btn btn-primary signup mb-4">See your reservations.</a>
 
      </div>
     </div>
 </div>
 {% endblock %}
+ 
