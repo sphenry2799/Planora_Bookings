@@ -20,4 +20,18 @@ body {
     background-size: cover;      
         }
 
-        
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    font-size: 1.7rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--third-color);
+    color: var(--third-color);
+}
+#id_notes {
+  width: 5rem;
+  height: 10rem;
+}

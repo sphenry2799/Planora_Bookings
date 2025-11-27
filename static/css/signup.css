@@ -50,11 +50,6 @@ h4 {
     background-color: var(--primary-color);
 }
 
-.login {
-    color: var(--secondary-color);
-    font-weight: 600;
-}
-
 .btn-primary {
   background-color: var(--dark-color);
   border: none;
