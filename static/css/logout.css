@@ -20,10 +20,9 @@ body {
     background-size: cover;      
         }
 
-
 p {
     font-size: 1.5rem;
-    color: var(--dark-color);
+    color: var(--light-color);
 }
 
 h3 {
@@ -36,14 +35,26 @@ h4 {
     font-size: 2.5rem;
 }
 
+.reservation-container {
+    max-width: 35rem;
+    margin: 6rem auto;
+    background: var(--secondary-color);
+    color: var(--third-color);
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 2rem;
+             }
+
+/* 
 .main-text {
     font-size: 1.7rem;
-}
+} */
 
 
 .btn-signup {
     font-size: 1.5rem;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--light-color);
 }
 
