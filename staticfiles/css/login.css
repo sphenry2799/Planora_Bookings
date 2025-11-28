@@ -20,7 +20,6 @@ body {
     background-size: cover;      
         }
 
-
 p {
     font-size: 1.5rem;
 }
@@ -35,25 +34,27 @@ h4 {
     font-size: 2.5rem;
 }
 
-.main-text {
-    font-size: 1.7rem;
-}
-
 .btn-signup {
-    font-size: 1.5rem;
     background-color: var(--secondary-color);
     color: var(--light-color);
+    font-size: 1.5rem;
 }
 
 .btn-signup:hover {
     background-color: var(--primary-color);
 }
 
-.login {
+.link {
     color: var(--secondary-color);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
-}
+}  
+
+.link:hover {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+}  
 
 #id_remember {
     scale: 1.4;

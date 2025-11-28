@@ -31,7 +31,3 @@ body {
     background-color: var(--third-color);
     color: var(--third-color);
 }
-#id_notes {
-  width: 5rem;
-  height: 10rem;
-}
