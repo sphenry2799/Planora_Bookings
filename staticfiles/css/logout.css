@@ -35,8 +35,6 @@ h4 {
     font-size: 2.5rem;
 }
 
-h5 
-
 .reservation-container {
     max-width: 35rem;
     margin: 6rem auto;
@@ -48,6 +46,9 @@ h5
     padding: 2rem;
              }
 
+.question {
+    color: var(--light-color);
+}
 
 .btn-signup {
     font-size: 1.5rem;

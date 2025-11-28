@@ -14,8 +14,8 @@
 }
 
 body {
-    background-image: url('../images/booking.jpg'); /* only the URL here */
-    background-repeat: no-repeat;      /* prevent tiling */
+    background-image: url('../images/booking.jpg'); 
+    background-repeat: no-repeat; 
     background-position: center;      
     background-size: cover;      
         }
@@ -36,8 +36,20 @@ h4 {
     font-size: 2.5rem;
 }
 
+.link {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: 600;
+}  
+
+.link:hover {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 600;
+}  
+
 .signup {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .btn-signup {
