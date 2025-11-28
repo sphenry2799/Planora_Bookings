@@ -51,6 +51,7 @@ p {
 
 .footer-text {
   font-size: 1rem;
+  color: var(--secondary-color);
 }
 
 .navbar-toggler {
