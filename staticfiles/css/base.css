@@ -53,6 +53,11 @@ p {
   font-size: 1rem;
 }
 
+.navbar-toggler {
+   background-color: var(--secondary-color);
+   color: var(--light-color);
+        }
+
 #footer {
   background-color: var(--primary-color);
 }

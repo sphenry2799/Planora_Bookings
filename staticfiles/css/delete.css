@@ -14,16 +14,18 @@
 }
 
 body {
-    background-image: url('../images/reservation-illustration.jpg'); /* only the URL here */
+    background-image: url('../images/booking.jpg'); /* only the URL here */
     background-repeat: no-repeat;      /* prevent tiling */
     background-position: center;      
     background-size: cover;      
         }
 
-.container-fluid {
-  padding: 0px;
-  max-height: 60px;
-}        
+h2 {
+  font-family: var(--secondary-font);
+  color: var(--light-color);
+  font-weight: 700;
+        }
+
 .reservation-container {
     max-width: 35rem;
     margin: 6rem auto;
@@ -35,15 +37,21 @@ body {
     padding: 2rem;
              }
 
-h2 {
-  font-family: var(--secondary-font);
-  color: var(--light-color);
-  font-weight: 700;
-        }
-
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--dark-color);
   border: none;
 }
 
+.btn-primary:hover {
+  background-color: var(--third-color);
+  color: var(--dark-color);
+}
+
+.back-button {
+  color: var(--light-color);
+}
+
+.back-button:hover {
+  color: var(--primary-color);
+}

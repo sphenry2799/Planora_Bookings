@@ -20,10 +20,21 @@ body {
     background-size: cover;      
         }
 
-.container-fluid {
-  padding: 0px;
-  max-height: 60px;
-}        
+p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+h3 {
+    font-family: var(--secondary-font);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 2.5rem;
+}
+
 .reservation-container {
     max-width: 35rem;
     margin: 6rem auto;
@@ -35,15 +46,18 @@ body {
     padding: 2rem;
              }
 
-h2 {
-  font-family: var(--secondary-font);
-  color: var(--light-color);
-  font-weight: 700;
-        }
+/* 
+.main-text {
+    font-size: 1.7rem;
+} */
 
-.btn-primary {
-  background-color: var(--primary-color);
-  color: var(--dark-color);
-  border: none;
+
+.btn-signup {
+    font-size: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--light-color);
 }
 
+.btn-signup:hover {
+    background-color: var(--primary-color);
+}
