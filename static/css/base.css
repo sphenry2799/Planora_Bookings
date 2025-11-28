@@ -35,7 +35,7 @@ p {
 .logo {
   filter: transparent;
   display: block;
-  max-height: 4rem; /* optional to size your logo */
+  max-height: 4rem; 
 }
 
 .social-icons {
@@ -46,11 +46,12 @@ p {
 }
 
 .social-icons, .list-unstyled a {
-    color: var(--secondary-color);
+    color: var(--dark-color);
 }
 
 .footer-text {
   font-size: 1rem;
+  color: var(--dark-color);
 }
 
 .navbar-toggler {
