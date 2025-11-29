@@ -20,11 +20,6 @@ body {
     background-size: cover;      
         }
 
-p {
-    font-size: 1.5rem;
-    margin: 2rem auto;
-}
-
 h1 {
   font-family: var(--secondary-font);
   font-size: 4rem;
@@ -37,6 +32,11 @@ h2 {
   color: var(--light-color);
   font-weight: 500;
         }
+
+h3 {
+    font-size: 1.5rem;
+    margin: 2rem auto;
+}
 
 .reservation-container {
     max-width: 35rem;

@@ -20,11 +20,26 @@ body {
     background-size: cover;      
         }
 
+
 h2 {
   font-family: var(--secondary-font);
   color: var(--light-color);
-  font-weight: 700;
+  font-weight: 600;
         }
+
+h3 {
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  color: var(--third-color);
+  font-weight: 400;
+        }
+
+.delete {
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+  color: var(--third-color);
+  font-weight: 600;
+}
 
 .reservation-container {
     max-width: 35rem;
