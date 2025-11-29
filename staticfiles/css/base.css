@@ -19,7 +19,10 @@ p {
 
 .navbar-custom {
   background-color: var(--primary-color);
+  min-height: 60px;      
+  padding: 0 1rem;      
 }
+
 
 .nav-link {
   color: var(--dark-color);
@@ -28,9 +31,10 @@ p {
 }
 
 .logo {
-  display: block;
-  max-height: 4rem; 
+  max-height: 40px;      
+  height: auto;
 }
+
 
 .social-icons {
   display: flex;
