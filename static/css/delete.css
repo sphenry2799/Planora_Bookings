@@ -14,12 +14,11 @@
 }
 
 body {
-    background-image: url('../images/booking.jpg'); /* only the URL here */
-    background-repeat: no-repeat;      /* prevent tiling */
+    background-image: url('../images/booking.jpg'); 
+    background-repeat: no-repeat;  
     background-position: center;      
     background-size: cover;      
         }
-
 
 h2 {
   font-family: var(--secondary-font);
@@ -51,7 +50,6 @@ h3 {
     font-size: 1.2rem;
     padding: 2rem;
              }
-
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--dark-color);
