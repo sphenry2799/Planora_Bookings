@@ -14,8 +14,8 @@
 }
 
 body {
-    background-image: url('../images/reservation-illustration.jpg'); /* only the URL here */
-    background-repeat: no-repeat;      /* prevent tiling */
+    background-image: url('../images/reservation-illustration.jpg'); 
+    background-repeat: no-repeat;     
     background-position: center;      
     background-size: cover;      
         }
