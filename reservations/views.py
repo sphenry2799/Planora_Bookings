@@ -1,18 +1,43 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Reservation
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.contrib import messages  
 from .forms import ReserveForm
+from django.contrib.auth.decorators import login_required 
+from django.shortcuts import render, redirect
+from .forms import UserRegistrationForm 
+from .models import Reservation 
 
-# Home view / reservation form
-def home(request):
+def register_view(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # 💡 Option 1 (Recommended): Use Django Messages
+            # This is generally better for showing success/error
+            from django.contrib import messages
+            messages.success(request, 'Account created successfully! Please log in.')
+            return redirect('login') # Redirect to the login page
+     
+    else:
+        form = UserRegistrationForm()
+
+    return render(request, 'signup.html', {'form': form})
+
+@login_required
+def make_reservation(request):
     if request.method == 'POST':
         form = ReserveForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('reservation_confirmation')  # redirect to confirmation page
+            reservation = form.save(commit=False)
+            reservation.user = request.user
+            reservation.save()
+
+            return redirect('reservation_confirmation')
     else:
         form = ReserveForm()
 
-    return render(request, 'reservation_home.html', {'form': form})
+    return render(request, 'make_reservation.html', {'form': form})
 
 # Reservation confirmation page
 def reservation_confirmation(request):
@@ -31,9 +56,10 @@ def edit_reservation(request, pk):
         form = ReserveForm(request.POST, instance=reservation)
         if form.is_valid():
             form.save()
+            messages.success(request, f"Reservation for {reservation.name} on {reservation.date} has been successfully updated.")
             return redirect('reservation_list')
     else:
-        form = ReserveForm(instance=reservation)
+        form = ReserveForm(instance=reservation, user=request.user)
 
     return render(request, 'edit_reservation.html', {'form': form})
 
