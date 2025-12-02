@@ -17,12 +17,15 @@ p {
   font-size: 1rem;
 }
 
+.content-wrapper {
+  padding-top: 4rem; 
+}
+
 .navbar-custom {
   background-color: var(--primary-color);
   min-height: 60px;      
   padding: 0 1rem;      
 }
-
 
 .nav-link {
   color: var(--dark-color);
