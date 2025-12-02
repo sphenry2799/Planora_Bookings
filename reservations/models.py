@@ -24,7 +24,7 @@ class Reservation(models.Model):
     notes = models.TextField(blank=True)
 
     class Meta:
-        unique_together = ('date', 'time', 'user')  # prevent double-booking per user/time
+        unique_together = ('date', 'time', 'user') 
 
     def __str__(self):
         return (
