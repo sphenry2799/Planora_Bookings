@@ -17,6 +17,14 @@ p {
   font-size: 1rem;
 }
 
+body {
+    background-image: url('/static/images/booking.jpg') !important; 
+    background-repeat: no-repeat !important; 
+    background-position: center !important;       
+    background-size: cover !important;          
+    min-height: 100vh !important; 
+}
+
 .content-wrapper {
   padding-top: 4rem; 
 }
@@ -37,7 +45,6 @@ p {
   max-height: 40px;      
   height: auto;
 }
-
 
 .social-icons {
   display: flex;

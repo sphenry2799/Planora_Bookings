@@ -13,17 +13,22 @@
   --bs-gutter-x: 0;
 }
 
+p {
+    font-size: 1.5rem;
+}
+
 body {
-    background-image: url(../images/booking.jpg);
+    background-image: url('../images/booking.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    min-height: 100vh; 
-    width: 100%;
-        }
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-p {
-    font-size: 1.5rem;
+footer {
+    margin-top: auto;
 }
 
 h2 {
@@ -40,6 +45,14 @@ h3 {
 
 h4 {
     font-size: 1.5rem;
+}
+.signup-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;   /* horizontal */
+    align-items: center;         /* vertical */
+    padding-top: 40px;           /* prevents header overlap */
+    padding-bottom: 40px;
 }
 
 .btn-signup {
@@ -63,7 +76,3 @@ h4 {
     font-size: 1.5rem;
     font-weight: 600;
 }  
-
-#id_remember {
-    scale: 1.4;
-}
