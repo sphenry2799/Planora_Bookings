@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-font: "Inter", sans-serif;
+  --secondary-font: "Macondo", serif;
+  --primary-color: #fca311;
+  --secondary-color: #14213d;
+  --third-color: #e5e5e5;
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --background-color: rgba(8, 8, 8, 0.5);
+  --bs-gutter-x: 0;
+}
+
+body {
+    background-image: url('../images/booking.jpg'); 
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;      
+        }
+
+h1 {
+  font-family: var(--secondary-font);
+  font-size: 4rem;
+  font-weight: 700;
+
+}
+
+h2 {
+  font-family: var(--primary-font);
+  color: var(--light-color);
+  font-weight: 500;
+        }
+
+h3 {
+    font-size: 1.5rem;
+    margin: 2rem auto;
+}
+
+.reservation-container {
+    max-width: 35rem;
+    margin: 6rem auto;
+    background: var(--secondary-color);
+    color: var(--third-color);
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 2rem;
+}
+
+.text-success {
+    color: var(--third-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+}
+
+.signup {
+    font-size: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.signup:hover {
+    background-color: var(--secondary-color);
+}

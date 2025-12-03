@@ -9,13 +9,25 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock %}
 
+{% block background_image %}
+    {% with bg_url='images/booking.jpg' %} 
+        <body style="
+            background-image: url('{% static bg_url %}'); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            min-height: 100vh;
+        ">
+    {% endwith %}
+{% endblock background_image %}
+
 {% block content %}
-<div class="container">
+<div class="container my-5">
     <div class="row mt-5">
         <div class="col-md-8 mt-3 offset-md-2">
             <h1 class="mb-5 mt-5"><i class="fa-solid fa-arrow-right-to-bracket"></i> {% trans "Log In to Planora" %}</h1>
 
-            {% blocktrans %} <h2>Planora is an online booking reservations service for professional and busy people. Create an account to make reseervations  Your reservations can be changed and cancel at any time. </h2><br>
+            {% blocktrans %} <h2>Welcome back.</h2><br>
             <br>
             <h3 class="main-text">To make a reservation, please log in. If
                 you
