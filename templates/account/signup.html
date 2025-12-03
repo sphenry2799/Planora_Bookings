@@ -15,11 +15,11 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
 
-                <h1 class="text-center mb-4 mt-4">
+                <h1 class="mb-4 mt-4">
                     <i class="fa-solid fa-pen"></i> {% trans "Sign Up" %}
                 </h1>
 
-                <p class="text-center">
+                <p>
                     {% blocktrans %}Already have an account?
                         <a class="link" href="{{ login_url }}">sign in</a>.
                     {% endblocktrans %}
@@ -33,7 +33,7 @@
                     {% csrf_token %}
                     {{ form.as_p }}
 
-                    <button type="submit" class="btn btn-primary w-100">
+                    <button type="submit" class="btn btn-primary">
                         {% trans "Sign Up" %}
                     </button>
                 </form>
