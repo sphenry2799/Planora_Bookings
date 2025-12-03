@@ -107,7 +107,7 @@ DATABASES = {
 # -------------------
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Heroku collects here
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra locations for static files (optional, if you have a 'static' folder in apps)
 STATICFILES_DIRS = [BASE_DIR / "static"]
