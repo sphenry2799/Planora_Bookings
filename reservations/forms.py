@@ -1,15 +1,15 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Reservation # Required import
-from django.core.exceptions import ValidationError # Assuming you will use this
-from datetime import date # Assuming you will use this
+from .models import Reservation 
+from django.core.exceptions import ValidationError 
+from datetime import date 
 
 
 
 class ReserveForm(forms.ModelForm):
     guests = forms.IntegerField(
         min_value=1, 
-        max_value=12,  # Example: limit to 12 guests
+        max_value=12,  
         widget=forms.NumberInput(attrs={'class': 'form-control'})
     )
 
@@ -24,8 +24,6 @@ class ReserveForm(forms.ModelForm):
 
             # Only run if date, time, and user are available
         if date and time and self.user:
-        # Check for an existing reservation by this user at this exact time
-        # Exclude the current instance if we are editing a reservation (optional but good practice)
             query = Reservation.objects.filter(
                 date=date, 
                 time=time, 

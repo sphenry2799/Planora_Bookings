@@ -13,11 +13,9 @@ def register_view(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # 💡 Option 1 (Recommended): Use Django Messages
-            # This is generally better for showing success/error
             from django.contrib import messages
             messages.success(request, 'Account created successfully! Please log in.')
-            return redirect('login') # Redirect to the login page
+            return redirect('login') 
      
     else:
         form = UserRegistrationForm()
